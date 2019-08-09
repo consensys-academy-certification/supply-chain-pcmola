@@ -40,13 +40,13 @@ contract SupplyChain {
 
   // Create a modifier named 'onlyOwner' where only the contract owner can proceed with the execution.
   modifier onlyOwner() {
-    require(msg.sender == owner, "Only owner can proceed with the execution.");
+    require(msg.sender == owner, "Only the contract owner can proceed with the execution.");
     _;
   }
 
   // Create a modifier named 'checkState' where the execution can only proceed if the respective Item of a given itemId is in a specific state.
   modifier checkState(uint _itemId, State _state) {
-    require(items[_itemId].state == _state, "Given item state is in unsatisfied state.");
+    require(items[_itemId].state == _state, "Given item's state is in not met in the condition.");
     _;
   }
 
